@@ -1,0 +1,422 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+:root {
+    --black-rock: #1c0433;
+    --whiskey: #d08961;
+    --emerald: #56d18b;
+    --emeraldtr: #56d18b93;
+    --purple-heart: #5934d2;
+    --smoky: #645780;
+    --buccaneer: #713234;
+    --killarney: #2b5937;
+    --eternity: #18150c;
+    --aubergine: #430c23;
+    --jagger: #2f125a;
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* estilos navr */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Open Sans", arial;
+    background-color: var(--jagger);
+    color: var(--emerald);
+    font-weight: 300;
+    display: flex;
+    flex-direction: row;
+}
+
+h1 {
+    color: var(--emerald);
+    font-size: 20px;
+    padding: 20px;
+}
+
+#navr {
+    align-items: center;
+}
+
+#main-content {
+    align-items: center;
+}
+
+/* ESTILOS DEL MENU */
+
+.logo {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo video {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    /* Asegura que el video no exceda el ancho */
+    max-height: 100%;
+    /* Asegura que no exceda esta altura */
+    object-fit: contain;
+    /* Ajusta el video sin que se corte */
+}
+
+.fa-lg {
+    font-size: 1em;
+}
+
+.fa {
+    display: table-cell;
+    width: 40px;
+    height: 26px;
+    text-align: center;
+    padding-top: 15%;
+    font-size: 20px;
+}
+
+.main-menu {
+    background-color: var(--black-rock);
+    position: fixed; /* Cambiado de absolute a fixed */
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width: 40px;
+    color: var(--emerald);
+    overflow: hidden;
+    transition: width .3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-right: none;
+    min-height: 80vh; /* Se asegura que ocupe todo el alto de la pantalla */
+}
+
+.main-menu.expanded-menu {
+    width: 160px;
+    /* Menú expandido */
+    background-color: var(--black-rock);
+    display: flex;
+}
+
+/* Estilo para los botones fijos en la parte inferior */
+.main-menu ul.logout {
+    position: absolute;
+    bottom: 0;
+    /* Posicionar en la parte inferior */
+    left: 0;
+    width: 100%;
+}
+
+.main-menu ul.logout li {
+    width: 100%;
+    /* Asegura que los botones ocupen todo el ancho disponible */
+}
+
+.main-menu ul.logout li a {
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 10px;
+    font-family: 'Strait', sans-serif;
+    text-align: center;
+    color: var(--emerald);
+}
+
+/* Otros estilos siguen igual... */
+
+.main-menu li {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.main-menu li>a {
+    width: 160px;
+    display: table;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-decoration: none;
+    -webkit-transition: all .14s linear;
+    transition: all .14s linear;
+    font-family: 'Strait', sans-serif;
+    border-top: 1px solid #f2f2f221;
+}
+
+.main-menu .nav-icon {
+    display: table-cell;
+    width: 40px;
+    height: 26px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.main-menu .nav-text {
+    display: table-cell;
+    vertical-align: middle;
+    width: 160px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu li:hover>a {
+    color: #fff;
+    background-color: #1818188f;
+}
+
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Titillium WebLight'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+/* Ajustes adicionales */
+
+.main-menu .logo {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ESTILOS GRID ABOUT */
+
+
+section {
+    padding-top: 150px;
+    padding-left: 150px;
+    padding-right: 80px;
+}
+
+section p {
+    padding: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.grid-item:hover {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px 5px rgba(86, 209, 139, 0.6);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.grid-item:hover .overlay {
+    opacity: 1;
+}
+
+/* Clases adicionales para tamaños variados */
+.grid-item.large {
+    grid-column: span 2; /* Ocupa dos columnas */
+    grid-row: span 2; /* Ocupa dos filas */
+}
+
+.grid-item.wide {
+    grid-column: span 2; /* Ocupa dos columnas */
+}
+
+.grid-item.tall {
+    grid-row: span 2; /* Ocupa dos filas */
+}
+
+
+/* VILLAGER CARD */
+.villager-card {
+    padding: 24px;
+    border-radius: 1.5rem; /* Rounded corners */
+    border: 4px solid white;
+    background-color: #f3f4f6; /* Neutral background */
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.villager-card:hover {
+    transform: scale(1.05);
+}
+
+/* ICON CONTAINER */
+.icon-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.villager-icon {
+    height: 88px;
+    width: 88px;
+    object-fit: cover;
+    border-radius: 50%; /* Round image */
+    background-color: #e5e7eb; /* Light background for icon */
+}
+
+/* BIRTHDAY INFO */
+.birthday-info {
+    display: flex;
+    gap: 4px;
+    font-size: 12px;
+    color: #4b5563; /* Dark neutral text */
+}
+
+/* VILLAGER DETAILS */
+.villager-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.villager-name {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 50px; /* Pill shape */
+}
+
+.villager-info {
+    font-size: 16px;
+    color: #111827; /* Darker text */
+}
+
+/* CATCHPHRASE INFO */
+.catchphrase-info {
+    display: flex;
+    gap: 4px;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: 75%;
+    background-color: #f3f4f6; /* Sidebar background */
+    top: 0;
+    right: 0;
+    z-index: 30;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 50px;
+    background-color: #e5e7eb;
+    color: #111827;
+    cursor: pointer;
+}
+
+/* SELECTED VILLAGER */
+.selected-villager {
+    display: flex;
+    gap: 40px;
+}
+
+.selected-icon {
+    width: 150px; /* Adjust icon size */
+    height: 150px;
+    background-color: #e5e7eb;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.selected-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.selected-name {
+    font-size: 32px;
+    font-weight: bold;
+    padding: 12px 16px;
+    border-radius: 50px;
+}
+
+/* PROPERTIES LIST */
+.properties-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.property {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: #4b5563;
+}
+
+.property-value {
+    font-weight: bold;
+    color: #111827; /* Darker text for values */
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+}

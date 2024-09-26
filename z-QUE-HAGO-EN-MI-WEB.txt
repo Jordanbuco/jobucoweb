@@ -1,0 +1,109 @@
+
+
+--------------------------------------------------------------------------------------
+
+INDICE
+
+--------------------------------------------------------------------------------------
+
+
+INSTALACION BASICA DE HTML, CSS, JS Y ALPINEjs
+
+CONEXION CON GITHUB, REPOSITORIO, WORKING CODE, CODE APP, ARCHIVOS Y DOCUMENTS(SSH-SFTP)
+
+CREACION BASICOS INDEX, STYLE Y CARPETAS MEDIA (archivos) Y COM (paginas componentes a cargar en index.html)
+
+CREACION DE 0SAVED PARA GUARDAR CONTENIDO QUE AL FINAL DE TODO TRABAJO, BORRAR DEL HOST
+
+CREO NAVR.HTML PARA INCLUIR MENU FIJO A LA IZQUIERDA CON BOTONES, SLIDE Y VIDEO BG
+
+CONECTO CON INDEX Y CREO PAGINAS BASICAS
+
+CREO GRID EN ABOUT CON EFECTOS Y CREACION RANDOM DE GRID
+
+CREO CARDS, PAGINA CON CARTAS 3D PARA ENSEÑAR ALGO A FUTURO
+
+
+
+
+--------------------------------------------------------------------------------------
+
+CUERPO
+
+--------------------------------------------------------------------------------------
+
+
+INSTALACIÓN BÁSICA DE HTML, CSS, JS Y ALPINE.js
+
+	1.	Configuración del entorno
+	•	Instalación de VS Code u otro editor de código.
+	•	Creación de una carpeta de proyecto.
+	•	Estructura inicial de archivos (index.html, style.css, app.js).
+	•	Inclusión de la librería Alpine.js.
+	2.	Estructura del documento HTML
+	•	Configuración del <!DOCTYPE html>.
+	•	Creación del contenedor principal.
+	•	Definición de clases y estructura básica de CSS.
+
+CONEXIÓN CON GITHUB: REPOSITORIO, WORKING CODE, CODE APP, ARCHIVOS Y DOCUMENTS (SSH-SFTP)
+
+	1.	Creación de un repositorio en GitHub
+	•	Pasos para inicializar un repositorio desde la consola.
+	•	Conexión SSH y configuración de llaves.
+	2.	Sincronización de cambios (SSH-SFTP)
+	•	Subir y bajar cambios mediante Git y SFTP.
+	•	Manejo de versiones y branches en GitHub.
+
+CREACIÓN BÁSICA DE index.html, style.css Y CARPETAS media (archivos) Y com (páginas/componentes a cargar en index.html)
+
+	1.	Estructura de carpetas
+	•	Creación de carpetas y subcarpetas para organizar los recursos (media, com).
+	•	Integración de componentes en el index.html.
+	2.	Estilos CSS iniciales
+	•	Definición de styles.css para estilizar la página base.
+	•	Separación de componentes visuales.
+
+CREACIÓN DE 0saved PARA GUARDAR CONTENIDO A BORRAR AL FINALIZAR EL TRABAJO
+
+	1.	Objetivo de la carpeta 0saved
+	•	Uso temporal de recursos y componentes.
+	•	Depuración final del proyecto.
+
+CREACIÓN DE navr.html PARA INCLUIR MENÚ FIJO A LA IZQUIERDA CON BOTONES, SLIDE Y VIDEO BG
+
+	1.	Diseño de navr.html
+	•	Menú con botones para navegación interna.
+	•	Implementación de vídeo como fondo (video bg).
+	•	Implementación de efectos visuales en los botones y elementos del menú.
+	2.	Estilo y comportamiento del menú
+	•	Estilos CSS para la posición fija y animaciones del menú.
+	•	Conexión con el archivo principal (index.html).
+
+CONEXIÓN CON index.html Y CREACIÓN DE PÁGINAS BÁSICAS
+
+	1.	Definición de componentes
+	•	Creación de diferentes componentes (header, footer, about, etc.).
+	•	Integración con index.html.
+	2.	Routing básico con Alpine.js
+	•	Inclusión de Alpine.js para manejar la navegación y carga de componentes.
+	•	Implementación de eventos y comportamientos.
+
+CREACIÓN DE GRID EN about.html CON EFECTOS Y CREACIÓN RANDOM DE GRID
+
+	1.	Diseño de grid en about.html
+	•	Implementación de grid layout con CSS.
+	•	Generación aleatoria de grid items.
+	2.	Animaciones y efectos
+	•	Efectos de hover, transformación y transición.
+	•	Integración con JS para dinamismo adicional.
+
+CREACIÓN DE cards.html: PÁGINA CON CARTAS 3D PARA ENSEÑAR ALGO A FUTURO
+
+	1.	Diseño de cartas 3D
+	•	Implementación de transformaciones 3D en CSS.
+	•	Efectos de voltear, rotar y escalar.
+	2.	Estructura y contenido de las cartas
+	•	Definición de tarjetas como contenedores de contenido específico.
+	•	Efectos adicionales al hacer clic o hover en cada carta.
+
+¿Hay algún tema en específico que te gustaría desarrollar con más detalle o alguna modificación en el cuerpo?

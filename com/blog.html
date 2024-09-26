@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Grid Gallery</title>
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="tailwindConfig.js"></script>
+    <script src="js/sidebar.js"></script>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" />
+</head>
+
+<body>
+    <div x-data="data()" class="mx-auto px-8 py-8 w-full max-w-6xl grid grid-cols-3 gap-5">
+        <!-- ******************** -->
+        <!-- VILLAGER CARDS -->
+        <!-- ******************** -->
+        <template x-for="villager in villagers">
+            <div class="villager-card" @click="handleClick(villager)">
+                <div class="icon-container">
+                    <img class="villager-icon" :src="villager.icon_uri" alt="">
+                    <div class="birthday-info">
+                        <img src="./icons/Cake.svg" alt="Birthday icon" />
+                        <span x-text="villager.birthday"></span>
+                    </div>
+                </div>
+
+                <div class="villager-details">
+                    <div class="villager-name" :style="{ 'background-color': villager['bubble-color'], color: villager['text-color'] }">
+                        <span x-text="villager.name['name-USen']"></span>
+                    </div>
+                    <div class="villager-info">
+                        <span x-text="villager.personality"></span>
+                        <span>·</span>
+                        <span x-text="villager.species"></span>
+                    </div>
+                    <div class="catchphrase-info">
+                        <img src="./icons/ChatsCircle.svg" alt="Catchphrase icon" />
+                        <span x-text="villager['catch-phrase']"></span>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!--·‌********************·‌-->
+        <!--·‌SIDEBAR·‌-->
+        <!--·‌********************·‌-->
+        <div x-show="isOpen" class="sidebar">
+            <button class="close-button" @click="closeSidebar">
+                <!-- Botón de cerrar -->
+            </button>
+            <div x-show="selectedVillager" class="selected-villager">
+                <div class="selected-icon">
+                    <img :src="selectedVillager.icon_uri" class="selected-icon-img" />
+                </div>
+                <div class="selected-details">
+                    <div class="selected-name" :style="{ 'background-color': selectedVillager['bubble-color'], color: selectedVillager['text-color'] }">
+                        <span x-text="selectedVillager.name['name-USen']"></span>
+                    </div>
+                    <p class="catchphrase" x-text="selectedVillager['catch-phrase']"></p>
+                </div>
+            </div>
+
+            <!-- PROPPERTIES LIST -->
+            <div class="properties-list">
+                <div class="property">
+                    <span>Birthday:</span>
+                    <span class="property-value" x-text="selectedVillager.birthday"></span>
+                </div>
+                <div class="property">
+                    <span>Gender:</span>
+                    <span class="property-value" x-text="selectedVillager.gender"></span>
+                </div>
+                <div class="property">
+                    <span>Personality:</span>
+                    <span class="property-value" x-text="selectedVillager.personality"></span>
+                </div>
+                <div class="property">
+                    <span>Species:</span>
+                    <span class="property-value" x-text="selectedVillager.species"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- OVERLAY -->
+        <div x-show="isOpen" class="overlay" @click="closeSidebar()"></div>
+    </div>
+</body>
+</html>

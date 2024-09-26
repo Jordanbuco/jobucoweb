@@ -1,0 +1,43 @@
+
+    <section>
+        <div class="grid-container">
+            <!-- Cada elemento de la cuadrícula -->
+            <div class="grid-item large" x-data="{ open: false }" @click="open = !open">
+                <a href="https://example.com/link1">
+                    <img src="media/1jo.jpg" alt="Image 1">
+                    <div class="overlay">
+                        <p x-show="open" x-transition>This is Image 1</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item wide" x-data="{ open: false }" @click="open = !open">
+                <a href="https://example.com/link2">
+                    <img src="https://via.placeholder.com/200" alt="Image 2">
+                    <div class="overlay">
+                        <p x-show="open" x-transition>This is Image 2</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item" x-data="{ open: false }" @click="open = !open">
+                <a href="https://example.com/link3">
+                    <img src="https://via.placeholder.com/200" alt="Image 3">
+                    <div class="overlay">
+                        <p x-show="open" x-transition>This is Image 3</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid-item" x-data="{ open: false }" @click="open = !open">
+                <a href="https://example.com/link4">
+                    <img src="https://via.placeholder.com/200" alt="Image 4">
+                    <div class="overlay">
+                        <p x-show="open" x-transition>This is Image 4</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Añade más imágenes si es necesario -->
+        </div>
+    </section>

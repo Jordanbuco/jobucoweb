@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1">
+    <title>nav</title>
+    <!-- Favicon -->
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome (asegúrate de cambiar el enlace si es necesario) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <nav class="main-menu">
+        <div class="settings">
+            <div class="logo">
+                <video autoplay muted loop>
+                    <source src="media/video-bg-menu-x.mov" type="video/quicktime">
+                </video>
+            </div>
+            <ul class="logout">
+                <!-- Cards abrirá en una nueva ventana -->
+                <li><a href="#"
+                        onclick="window.open('com/cards.html', '_self')"><i class="fa fa-square-o fa-lg"></i><span class="nav-text">Cards</span></a>
+                </li>
+                <li><a href="#"
+                        onclick="window.open('com/blog.html', '_self')"><i class="fa fa-file-text-o fa-lg"></i><span class="nav-text">Posts</span></a>
+                </li>
+                <!-- Estos enlaces cargarán el contenido dinámicamente -->
+                <li><a href="#"
+                        onclick="loadContent('com/contact.html')"><i class="fa fa-envelope-o fa-lg"></i><span class="nav-text">Contact</span></a>
+                </li>
+                <li><a href="#"
+                        onclick="loadContent('com/about.html')"><i class="fa fa-user fa-lg"></i><span class="nav-text">About</span></a>
+                </li>
+                <li><a href="#"
+                        onclick="loadContent('com/home.html')"><i class="fa fa-home fa-lg"></i><span class="nav-text">Home</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Incluye el script de carga de contenido dinámico -->
+    <script>
+        function loadContent(url) {
+            // Aquí podrías hacer una llamada AJAX o cargar contenido dinámicamente.
+            console.log("Cargando contenido de " + url);
+            // Ejemplo de uso de fetch para cargar el contenido dinámicamente
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    document.body.innerHTML = html;
+                })
+                .catch(error => console.error('Error al cargar el contenido:', error));
+        }
+    </script>
+</body>
+
+</html>

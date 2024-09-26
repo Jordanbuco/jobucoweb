@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIWEB</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+
+<body>
+    <div id="navr"></div>
+    <main id="main-content"></main>
+
+    <script>
+        // Cargar los componentes del navr y del main de forma independiente
+        const components = [
+            { id: 'navr', file: 'com/navr.html' }
+        ];
+
+        components.forEach(component => {
+            fetch(component.file)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById(component.id).innerHTML = html;
+
+                    // Añadir eventos para expandir el menú después de cargarlo
+                    const navr = document.querySelector('.main-menu'); // Seleccionamos el menú
+                    const mainContent = document.getElementById('main-content');
+
+                    navr.addEventListener('mouseenter', function () {
+                        navr.classList.add('expanded-menu');
+                    });
+
+                    navr.addEventListener('mouseleave', function () {
+                        navr.classList.remove('expanded-menu');
+                    });
+                })
+                .catch(error => console.error('Error al cargar componente:', component.id, error));
+        });
+
+        // Función para cargar contenido dinámico en el main
+        function loadContent(page) {
+            fetch(page)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('main-content').innerHTML = html;
+
+                    // Reiniciar Alpine.js después de cargar el contenido
+                    Alpine.initTree(document.getElementById('main-content'));
+                })
+                .catch(error => console.error('Error al cargar página:', page, error));
+        };
+
+        // Al iniciar, cargar la página Home por defecto
+        document.addEventListener('DOMContentLoaded', function () {
+            loadContent('com/home.html');
+        });
+    </script>
+</body>
+
+</html>

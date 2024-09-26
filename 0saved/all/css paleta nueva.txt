@@ -1,0 +1,11 @@
+/* CSS HEX */
+--black-rock: #1c0433;
+--whiskey: #d08961;
+--emerald: #56d18b;
+--purple-heart: #5934d2;
+--smoky: #645780;
+--buccaneer: #713234;
+--killarney: #2b5937;
+--eternity: #18150c;
+--aubergine: #430c23;
+--jagger: #2f125a;
