@@ -86,7 +86,8 @@ h1 {
 
 .main-menu {
     background-color: var(--black-rock);
-    position: fixed; /* Cambiado de absolute a fixed */
+    position: fixed;
+    /* Cambiado de absolute a fixed */
     top: 0;
     bottom: 0;
     height: 100%;
@@ -99,7 +100,8 @@ h1 {
     flex-direction: column;
     justify-content: flex-start;
     border-right: none;
-    min-height: 80vh; /* Se asegura que ocupe todo el alto de la pantalla */
+    min-height: 80vh;
+    /* Se asegura que ocupe todo el alto de la pantalla */
 }
 
 .main-menu.expanded-menu {
@@ -209,7 +211,8 @@ section p {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    grid-template-columns: repeat(4, 1fr);
+    /* Cuatro columnas */
     gap: 20px;
     padding: 20px;
 }
@@ -255,16 +258,20 @@ section p {
 
 /* Clases adicionales para tamaños variados */
 .grid-item.large {
-    grid-column: span 2; /* Ocupa dos columnas */
-    grid-row: span 2; /* Ocupa dos filas */
+    grid-column: span 2;
+    /* Ocupa dos columnas */
+    grid-row: span 2;
+    /* Ocupa dos filas */
 }
 
 .grid-item.wide {
-    grid-column: span 2; /* Ocupa dos columnas */
+    grid-column: span 2;
+    /* Ocupa dos columnas */
 }
 
 .grid-item.tall {
-    grid-row: span 2; /* Ocupa dos filas */
+    grid-row: span 2;
+    /* Ocupa dos filas */
 }
 
 
@@ -274,10 +281,12 @@ section p {
     display: grid;
     grid-gap: 20px;
 }
+
 .villager-card {
     padding: 24px;
     border: 4px solid white;
-    background-color: #f3f4f6; /* Neutral background */
+    background-color: #f3f4f6;
+    /* Neutral background */
     display: flex;
     gap: 20px;
     align-items: center;
@@ -302,7 +311,8 @@ section p {
     height: 88px;
     width: 88px;
     object-fit: cover;
-    background-color: #e5e7eb; /* Light background for icon */
+    background-color: #e5e7eb;
+    /* Light background for icon */
 }
 
 /* BIRTHDAY INFO */
@@ -310,7 +320,8 @@ section p {
     display: flex;
     gap: 4px;
     font-size: 12px;
-    color: #4b5563; /* Dark neutral text */
+    color: #4b5563;
+    /* Dark neutral text */
 }
 
 /* VILLAGER DETAILS */
@@ -328,7 +339,8 @@ section p {
 
 .villager-info {
     font-size: 16px;
-    color: #111827; /* Darker text */
+    color: #111827;
+    /* Darker text */
 }
 
 /* CATCHPHRASE INFO */
@@ -345,7 +357,8 @@ section p {
     height: 100vh;
     width: 100%;
     max-width: 75%;
-    background-color: #f3f4f6; /* Sidebar background */
+    background-color: #f3f4f6;
+    /* Sidebar background */
     top: 0;
     right: 0;
     z-index: 30;
@@ -371,7 +384,8 @@ section p {
 }
 
 .selected-icon {
-    width: 150px; /* Adjust icon size */
+    width: 150px;
+    /* Adjust icon size */
     height: 150px;
     background-color: #e5e7eb;
     overflow: hidden;
@@ -406,7 +420,8 @@ section p {
 
 .property-value {
     font-weight: bold;
-    color: #111827; /* Darker text for values */
+    color: #111827;
+    /* Darker text for values */
 }
 
 /* OVERLAY */
@@ -418,4 +433,74 @@ section p {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 20;
+}
+
+
+/* Estilo para el botón fijo */
+.fixed-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
+}
+
+.fixed-button:hover {
+    background-color: #0056b3;
+}
+
+/* Ocultar el cuadro de diálogo de la contraseña por defecto */
+.password-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    z-index: 1001;
+    /* Asegura que esté por encima del botón */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.password-dialog input[type="password"] {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-dialog button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.password-dialog button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Imagen a GitHub</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+<div x-data="uploadToGithub()" class="p-4">
+    <h1>Subir Imagen a GitHub</h1>
+
+    <input type="file" @change="handleFile" accept="image/*" class="mb-2">
+    <input type="text" x-model="commitMessage" placeholder="Commit message" class="mb-2">
+    <button @click="uploadFile" class="bg-blue-500 text-white px-4 py-2">Subir a GitHub</button>
+
+    <div x-show="uploading" class="mt-4">Subiendo archivo...</div>
+    <div x-show="success" class="mt-4 text-green-500">Imagen subida con éxito!</div>
+    <div x-show="error" class="mt-4 text-red-500">Error al subir la imagen.</div>
+</div>
+
+<script>
+    function uploadToGithub() {
+        return {
+            token: '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',  // Reemplazar por tu token personal
+            repoOwner: 'Jordanbuco',  // Dueño del repositorio
+            repoName: 'Drive',        // Nombre del repositorio
+            branch: 'main',           // Rama (branch)
+            filePath: '',
+            fileContent: '',
+            commitMessage: '',
+            uploading: false,
+            success: false,
+            error: false,
+
+            handleFile(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    this.filePath = `jobuco/bg-edited/${file.name}`;  // Subir a la carpeta bg-edited
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        // Convertir el archivo a Base64
+                        this.fileContent = btoa(e.target.result);
+                    };
+                    reader.readAsBinaryString(file);
+                }
+            },
+
+            async uploadFile() {
+                if (!this.fileContent || !this.commitMessage) {
+                    alert('Por favor selecciona una imagen e ingresa un mensaje de commit.');
+                    return;
+                }
+
+                this.uploading = true;
+                this.success = false;
+                this.error = false;
+
+                const url = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${this.filePath}`;
+
+                const response = await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${this.token}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: this.commitMessage,
+                        content: this.fileContent,
+                        branch: this.branch,
+                    }),
+                });
+
+                this.uploading = false;
+
+                if (response.ok) {
+                    this.success = true;
+                } else {
+                    this.error = true;
+                    console.error('Error al subir el archivo', response.statusText);
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
