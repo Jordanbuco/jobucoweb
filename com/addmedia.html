@@ -12,12 +12,17 @@
     <h1>Subir Imagen a GitHub</h1>
 
     <input type="file" @change="handleFile" accept="image/*" class="mb-2">
-    <input type="text" x-model="commitMessage" placeholder="Commit message" class="mb-2">
+    
+    <!-- Campo de texto para ingresar el nuevo nombre de la imagen -->
+    <input type="text" x-model="newFileName" placeholder="Nuevo nombre de la imagen" class="mb-2">
+    
+    <input type="text" x-model="commitMessage" placeholder="Mensaje del commit" class="mb-2">
+    
     <button @click="uploadFile" class="bg-blue-500 text-white px-4 py-2">Subir a GitHub</button>
 
     <div x-show="uploading" class="mt-4">Subiendo archivo...</div>
     <div x-show="success" class="mt-4 text-green-500">Imagen subida con éxito!</div>
-    <div x-show="error" class="mt-4 text-red-500">Error al subir la imagen.</div>
+    <div x-show="error" class="mt-4 text-red-500">Error al subir la imagen: <span x-text="errorMessage"></span></div>
 </div>
 
 <script>
@@ -29,6 +34,7 @@
             branch: 'main',              // Rama (branch)
             filePath: '',
             fileContent: '',
+            newFileName: '',             // Nuevo nombre de la imagen
             commitMessage: '',
             uploading: false,
             success: false,
@@ -38,7 +44,8 @@
             handleFile(event) {
                 const file = event.target.files[0];
                 if (file) {
-                    this.filePath = `jobuco/upfromweb/${file.name}`;  // Subir a la carpeta bg-edited
+                    // Previsualiza el nombre del archivo subido (temporal)
+                    this.filePath = `jobuco/upfromweb/${file.name}`;  // Por defecto, usa el nombre original del archivo
                     const reader = new FileReader();
                     reader.onload = (e) => {
                         // Convertir el archivo a Base64
@@ -49,6 +56,16 @@
             },
 
             async uploadFile() {
+                // Si se ha ingresado un nuevo nombre, lo usamos
+                if (this.newFileName.trim() !== '') {
+                    // Asegúrate de que el nuevo nombre tiene una extensión válida
+                    if (!this.newFileName.includes('.')) {
+                        alert('Por favor, agrega una extensión al nuevo nombre del archivo (ej. .png, .jpg).');
+                        return;
+                    }
+                    this.filePath = `jobuco/upfromweb/${this.newFileName}`;  // Usa el nuevo nombre
+                }
+
                 if (!this.repoOwner || !this.repoName || !this.branch || !this.fileContent || !this.commitMessage) {
                     alert('Por favor completa todos los campos.');
                     return;
