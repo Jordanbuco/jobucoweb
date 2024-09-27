@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Grid Gallery</title>
+    <title>Blog de la Naturaleza</title>
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
@@ -15,32 +15,22 @@
 </head>
 
 <body>
-    <div x-data="data()" class="mx-auto px-8 py-8 w-full max-w-6xl grid grid-cols-3 gap-5">
+    <div x-data="data()" x-init="loadArticles()" class="cards">
         <!-- ******************** -->
-        <!-- VILLAGER CARDS -->
+        <!-- ARTÍCULOS -->
         <!-- ******************** -->
-        <template x-for="villager in villagers">
-            <div class="villager-card" @click="handleClick(villager)">
-                <div class="icon-container">
-                    <img class="villager-icon" :src="villager.icon_uri" alt="">
-                    <div class="birthday-info">
-                        <img src="./icons/Cake.svg" alt="Birthday icon" />
-                        <span x-text="villager.birthday"></span>
-                    </div>
+        <template x-for="article in articles" :key="article.titulo">
+            <div class="article-card" @click="handleClick(article)">
+                <div class="image-container">
+                    <img class="article-image" :src="article.imagen1" alt="Imagen del artículo">
                 </div>
 
-                <div class="villager-details">
-                    <div class="villager-name" :style="{ 'background-color': villager['bubble-color'], color: villager['text-color'] }">
-                        <span x-text="villager.name['name-USen']"></span>
+                <div class="article-details">
+                    <div class="article-title">
+                        <h2 x-text="article.titulo"></h2>
                     </div>
-                    <div class="villager-info">
-                        <span x-text="villager.personality"></span>
-                        <span>·</span>
-                        <span x-text="villager.species"></span>
-                    </div>
-                    <div class="catchphrase-info">
-                        <img src="./icons/ChatsCircle.svg" alt="Catchphrase icon" />
-                        <span x-text="villager['catch-phrase']"></span>
+                    <div class="article-subtitle">
+                        <p x-text="article.subtitulo"></p>
                     </div>
                 </div>
             </div>
@@ -53,35 +43,22 @@
             <button class="close-button" @click="closeSidebar">
                 <!-- Botón de cerrar -->
             </button>
-            <div x-show="selectedVillager" class="selected-villager">
-                <div class="selected-icon">
-                    <img :src="selectedVillager.icon_uri" class="selected-icon-img" />
-                </div>
+            <div x-show="selectedArticle" class="selected-article">
                 <div class="selected-details">
-                    <div class="selected-name" :style="{ 'background-color': selectedVillager['bubble-color'], color: selectedVillager['text-color'] }">
-                        <span x-text="selectedVillager.name['name-USen']"></span>
+                    <div class="selected-title">
+                        <h2 x-text="selectedArticle.titulo"></h2>
                     </div>
-                    <p class="catchphrase" x-text="selectedVillager['catch-phrase']"></p>
+                    <p class="selected-subtitle" x-text="selectedArticle.subtitulo"></p>
+                    <p class="selected-body" x-text="selectedArticle.cuerpo1"></p>
+                    <p class="selected-body" x-text="selectedArticle.cuerpo2"></p>
+                    <p class="selected-body" x-text="selectedArticle.cuerpo3"></p>
+                    <p class="highlighted" x-text="selectedArticle.resaltado"></p>
+                    <h3 class="conclusion" x-text="selectedArticle.titulo_bajo"></h3>
                 </div>
-            </div>
 
-            <!-- PROPPERTIES LIST -->
-            <div class="properties-list">
-                <div class="property">
-                    <span>Birthday:</span>
-                    <span class="property-value" x-text="selectedVillager.birthday"></span>
-                </div>
-                <div class="property">
-                    <span>Gender:</span>
-                    <span class="property-value" x-text="selectedVillager.gender"></span>
-                </div>
-                <div class="property">
-                    <span>Personality:</span>
-                    <span class="property-value" x-text="selectedVillager.personality"></span>
-                </div>
-                <div class="property">
-                    <span>Species:</span>
-                    <span class="property-value" x-text="selectedVillager.species"></span>
+                <div class="selected-images">
+                    <img :src="selectedArticle.imagen1" class="article-image" alt="Imagen 1">
+                    <img :src="selectedArticle.imagen2" class="article-image" alt="Imagen 2">
                 </div>
             </div>
         </div>
