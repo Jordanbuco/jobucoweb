@@ -1,5 +1,4 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
 
 :root {
     --black-rock: #1c0433;
@@ -20,15 +19,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Outfit', sans-serif;
 }
+
+
 
 /* estilos navr */
 
 body {
     margin: 0px;
     padding: 0px;
-    font-family: "Open Sans", arial;
     background-color: var(--jagger);
     color: var(--emerald);
     font-weight: 300;
@@ -122,7 +122,6 @@ h1 {
     font-size: 13px;
     text-decoration: none;
     padding: 10px;
-    font-family: 'Strait', sans-serif;
     text-align: center;
     color: var(--emerald);
 }
@@ -143,7 +142,7 @@ h1 {
     text-decoration: none;
     -webkit-transition: all .14s linear;
     transition: all .14s linear;
-    font-family: 'Strait', sans-serif;
+    font-family: 'Outfit', sans-serif;
     border-top: 1px solid #f2f2f221;
 }
 
@@ -159,8 +158,9 @@ h1 {
 .main-menu .nav-text {
     display: table-cell;
     vertical-align: middle;
+    font-weight: 700;
     width: 160px;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Outfit', sans-serif;
 }
 
 .main-menu li:hover>a {
@@ -169,10 +169,10 @@ h1 {
 }
 
 @font-face {
-    font-family: 'Titillium Web';
+    font-family: 'Outfit';
     font-style: normal;
     font-weight: 300;
-    src: local('Titillium WebLight'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+    src: url('https://fonts.gstatic.com/s/outfit/v3/Yq6R-LyURyLy-aKl9XXzWqs.woff2') format('woff2');
 }
 
 /* Ajustes adicionales */

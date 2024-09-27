@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subir Imagen a GitHub</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        /* Estilo para la ventana flotante */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Ocultar por defecto */
+        }
+
+        .modal.show {
+            display: block; /* Mostrar cuando sea necesario */
+        }
+
+        .modal button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,6 +45,13 @@
     <div x-show="uploading" class="mt-4">Subiendo archivo...</div>
     <div x-show="success" class="mt-4 text-green-500">Imagen subida con éxito!</div>
     <div x-show="error" class="mt-4 text-red-500">Error al subir la imagen: <span x-text="errorMessage"></span></div>
+
+    <!-- Ventana flotante para mostrar la ruta del archivo -->
+    <div class="modal" :class="{ 'show': showModal }">
+        <p>Ruta del archivo: <span x-text="filePath"></span></p>
+        <button @click="copyToClipboard">Copiar Ruta</button>
+        <button @click="showModal = false">Cerrar</button>
+    </div>
 </div>
 
 <script>
@@ -40,6 +69,7 @@
             success: false,
             error: false,
             errorMessage: '',            // Almacena el mensaje de error
+            showModal: false,            // Controla la visibilidad de la ventana flotante
 
             handleFile(event) {
                 const file = event.target.files[0];
@@ -98,6 +128,7 @@
 
                     if (response.ok) {
                         this.success = true;
+                        this.showModal = true;  // Muestra la ventana flotante
                     } else {
                         this.error = true;
                         this.errorMessage = result.message || 'Error desconocido';  // Muestra el mensaje de error
@@ -109,6 +140,16 @@
                     this.errorMessage = err.message;
                     console.error('Error al realizar la solicitud:', err);
                 }
+            },
+
+            copyToClipboard() {
+                navigator.clipboard.writeText(this.filePath)
+                    .then(() => {
+                        alert('Ruta copiada al portapapeles!');
+                    })
+                    .catch(err => {
+                        alert('Error al copiar la ruta: ' + err);
+                    });
             }
         }
     }

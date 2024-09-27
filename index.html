@@ -7,8 +7,12 @@
     <title>MIWEB</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,14 +25,14 @@
         <div class="dropdown-content">
             <div class="icons">
                 <a href="https://wa.me/34624418183" target="_blank">
-                <img 
+                    <img
                     class="wsapp"
                     src="media/icons/wsapp.svg" alt="">
                 </a>
             </div>
             <div class="icons">
                 <a href="mailto:jordan@jobuco.es" target="_blank">
-                <img 
+                    <img
                     class="wsapp"
                     src="media/icons/mail.svg" alt="">
                 </a>
@@ -122,7 +126,7 @@
             fetch('private/password.json')  // Reemplazar con la URL correcta del archivo JSON
                 .then(response => response.json())
                 .then(data => {
-                    const correctPassword = data.password;  // El servidor debe devolver { "password": "1111" }
+                    const correctPassword = data.password;  // El servidor debe devolver { "password": "SADJNSAKJNDKJNQWJ21312!!" }
 
                     if (inputPassword === correctPassword) {
                         const action = document.getElementById('password-dialog').dataset.action;
