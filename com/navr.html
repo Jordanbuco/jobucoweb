@@ -1,4 +1,3 @@
-
 <body>
     <nav class="main-menu">
         <div class="settings">
@@ -6,22 +5,38 @@
                 <video src="media/video-bg-menu-x.MP4" type="video/mp4" autoplay muted loop></video>
             </div>
             <ul class="logout">
+
                 <!-- Cards abrirá en una nueva ventana -->
-                <li><a href="#"
-                        onclick="window.open('com/cards.html', '_self')"><i class="fa fa-square-o fa-lg"></i><span class="nav-text">Cards</span></a>
+                <li><a href="#" onclick="window.open('com/cards.html', '_self')">
+                        <img src="media/icons/mail.svg" alt="Mail Icon" class="mail-icon" />
+                        <span class="nav-text">Cards</span></a>
                 </li>
-                <li><a href="#"
-                        onclick="window.open('com/blog.html', '_self')"><i class="fa fa-file-text-o fa-lg"></i><span class="nav-text">Posts</span></a>
+                <li><a href="#" onclick="window.open('com/blog.html', '_self')">
+                        <img src="media/icons/cosas.svg" alt="Mail Icon" class="mail-icon" />
+                        <span class="nav-text">Blog</span></a>
+                </li>
+                <li><a href="#" onclick="window.open('com/addmedia.html', '_self')">
+                        <img src="media/icons/pizarra.svg" alt="Mail Icon" class="mail-icon" />
+                        <span class="nav-text">Add</span></a>
                 </li>
                 <!-- Estos enlaces cargarán el contenido dinámicamente -->
-                <li><a href="#"
-                        onclick="loadContent('com/contact.html')"><i class="fa fa-envelope-o fa-lg"></i><span class="nav-text">Contact</span></a>
+                <li>
+                    <a href="#" onclick="loadContent('com/contact.html')">
+                        <img src="media/icons/mail.svg" alt="Mail Icon" class="mail-icon" />
+                        <span class="nav-text">Contact</span>
+                    </a>
                 </li>
-                <li><a href="#"
-                        onclick="loadContent('com/about.html')"><i class="fa fa-user fa-lg"></i><span class="nav-text">About</span></a>
+                <li>
+                    <a href="#" onclick="loadContent('com/about.html')">
+                        <img src="media/icons/dibujo.svg" alt="Mail Icon" class="mail-icon" />
+                        <span class="nav-text">Jordan</span>
+                    </a>
                 </li>
-                <li><a href="#"
-                        onclick="loadContent('com/home.html')"><i class="fa fa-home fa-lg"></i><span class="nav-text">Home</span></a>
+                <li>
+                    <a href="#" onclick="loadContent('com/home.html')">
+                        <img src="media/icons/movil.svg" alt="Mail Icon" class="mail-icon" />
+                        <span class="nav-text">Home</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -42,4 +57,3 @@
         }
     </script>
 </body>
-
