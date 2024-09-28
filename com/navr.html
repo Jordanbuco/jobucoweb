@@ -6,6 +6,12 @@
             </div>
             <ul class="logout">
 
+                <!-- Nuevo botón encima de los demás -->
+                <li><a href="#" onclick="loadContent('com/mediausing.html')">
+                        <img src="media/icons/galeria.svg" alt="New Content Icon" class="mail-icon" />
+                        <span class="nav-text">USING</span></a>
+                </li>
+
                 <!-- Cards abrirá en una nueva ventana -->
                 <li><a href="#" onclick="window.open('com/cards.html', '_self')">
                         <img src="media/icons/mail.svg" alt="Mail Icon" class="mail-icon" />
@@ -51,7 +57,7 @@
             fetch(url)
                 .then(response => response.text())
                 .then(html => {
-                    document.body.innerHTML = html;
+                    document.getElementById('main-content').innerHTML = html;
                 })
                 .catch(error => console.error('Error al cargar el contenido:', error));
         }

@@ -52,25 +52,34 @@ h1 {
 
 /* ESTILOS DEL MENU */
 .logo {
-    height: 100vh; /* Altura total de la ventana */
+    height: 100vh;
+    /* Altura total de la ventana */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Para evitar que el video exceda los límites */
+    overflow: hidden;
+    /* Para evitar que el video exceda los límites */
 }
 
 .logo video {
-    width: 100%; /* Ancho completo */
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Asegura que el video cubra el área */
+    width: 100%;
+    /* Ancho completo */
+    height: auto;
+    /* Mantiene la proporción */
+    object-fit: cover;
+    /* Asegura que el video cubra el área */
 }
 
 .mail-icon {
-    width: 40px; /* Ajusta el tamaño del icono */
-    height: 40px; /* Ajusta el tamaño del icono */
-    display: inline-block; /* Alineación en línea */
-    vertical-align: middle; /* Alineación vertical */
+    width: 40px;
+    /* Ajusta el tamaño del icono */
+    height: 40px;
+    /* Ajusta el tamaño del icono */
+    display: inline-block;
+    /* Alineación en línea */
+    vertical-align: middle;
+    /* Alineación vertical */
     padding: 7px;
 }
 
@@ -226,6 +235,25 @@ section p {
     cursor: pointer;
 }
 
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
 
 /* Estilo para el botón fijo */
 .fixed-button {
@@ -298,36 +326,55 @@ section p {
 
 /* Estilos para el menú desplegable */
 .dropdown {
-    position: fixed; /* Fija el div en una posición específica en la ventana */
-    top: 0; /* Pegado al borde superior */
-    right: 0; /* Pegado al borde derecho */
-    display: inline-block; /* Mantiene el comportamiento en línea del bloque */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos si es necesario */
+    position: fixed;
+    /* Fija el div en una posición específica en la ventana */
+    top: 0;
+    /* Pegado al borde superior */
+    right: 0;
+    /* Pegado al borde derecho */
+    display: inline-block;
+    /* Mantiene el comportamiento en línea del bloque */
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos si es necesario */
 }
 
 .dropbtn {
-    background-image: url('media/icons/contacto.svg'); /* Imagen del botón */
-    background-size: cover; /* Asegura que la imagen cubra todo el botón */
+    background-image: url('media/icons/contacto.svg');
+    /* Imagen del botón */
+    background-size: cover;
+    /* Asegura que la imagen cubra todo el botón */
     background-color: transparent;
-    width: 60px; /* Ancho del botón */
-    height: 60px; /* Alto del botón */
-    border: none; /* Sin borde */
-    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    width: 60px;
+    /* Ancho del botón */
+    height: 60px;
+    /* Alto del botón */
+    border: none;
+    /* Sin borde */
+    cursor: pointer;
+    /* Cambia el cursor al pasar el ratón */
 }
 
 .dropdown-content {
-    display: none; /* Oculta el contenido por defecto */
-    position: absolute; /* Posición absoluta respecto al botón */
-    right: 0; /* Alinea al lado derecho */
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Sombra para el menú */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    display: none;
+    /* Oculta el contenido por defecto */
+    position: absolute;
+    /* Posición absoluta respecto al botón */
+    right: 0;
+    /* Alinea al lado derecho */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    /* Sombra para el menú */
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
 }
 
 .dropdown:hover .dropdown-content {
-    display: block; /* Muestra el contenido al pasar el ratón sobre el botón */
+    display: block;
+    /* Muestra el contenido al pasar el ratón sobre el botón */
 }
 
 .wsapp {
-    width: 60px; /* Ancho del enlace de WhatsApp */
-    height: 40px; /* Alto del enlace de WhatsApp */
+    width: 60px;
+    /* Ancho del enlace de WhatsApp */
+    height: 40px;
+    /* Alto del enlace de WhatsApp */
 }
