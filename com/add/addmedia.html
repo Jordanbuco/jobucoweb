@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subir Imagen a GitHub</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="../../style.css">
     <style>
-        /* Estilo para la ventana flotante */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .secTitle {
+            background-color: transparent;
+            color: #56d18b;
+        }
+
+        section {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        input[type="file"],
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
         .modal {
             position: fixed;
             top: 50%;
@@ -16,144 +66,154 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Ocultar por defecto */
+            display: none;
         }
 
         .modal.show {
-            display: block; /* Mostrar cuando sea necesario */
+            display: block;
         }
 
         .modal button {
             margin-top: 10px;
         }
+
+        .feedback {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .text-green {
+            color: green;
+        }
+
+        .text-red {
+            color: red;
+        }
     </style>
 </head>
+
 <body>
+    <section class="secTitle">
+        <h1>A mi respo y con path final!</h1>
+    </section>
+    <section>
 
-<div x-data="uploadToGithub()" class="p-4">
-    <h1>Subir Imagen a GitHub</h1>
+        <div x-data="uploadToGithub()">
+            <h1>Subir Imagen a GitHub</h1>
 
-    <input type="file" @change="handleFile" accept="image/*" class="mb-2">
-    
-    <!-- Campo de texto para ingresar el nuevo nombre de la imagen -->
-    <input type="text" x-model="newFileName" placeholder="Nuevo nombre de la imagen" class="mb-2">
-    
-    <input type="text" x-model="commitMessage" placeholder="Mensaje del commit" class="mb-2">
-    
-    <button @click="uploadFile" class="bg-blue-500 text-white px-4 py-2">Subir a GitHub</button>
+            <input type="file" @change="handleFile" accept="image/*">
+            <input type="text" x-model="newFileName" placeholder="Nuevo nombre de la imagen">
+            <input type="text" x-model="commitMessage" placeholder="Mensaje del commit">
 
-    <div x-show="uploading" class="mt-4">Subiendo archivo...</div>
-    <div x-show="success" class="mt-4 text-green-500">Imagen subida con éxito!</div>
-    <div x-show="error" class="mt-4 text-red-500">Error al subir la imagen: <span x-text="errorMessage"></span></div>
+            <button @click="uploadFile">Subir a GitHub</button>
 
-    <!-- Ventana flotante para mostrar la ruta del archivo -->
-    <div class="modal" :class="{ 'show': showModal }">
-        <p>Ruta del archivo: <span x-text="filePath"></span></p>
-        <button @click="copyToClipboard">Copiar Ruta</button>
-        <button @click="showModal = false">Cerrar</button>
-    </div>
-</div>
+            <div x-show="uploading" class="feedback">Subiendo archivo...</div>
+            <div x-show="success" class="feedback text-green">¡Imagen subida con éxito!</div>
+            <div x-show="error" class="feedback text-red">Error: <span x-text="errorMessage"></span></div>
 
-<script>
-    function uploadToGithub() {
-        return {
-            token: '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',  // Reemplazar por tu token personal
-            repoOwner: 'Jordanbuco',     // Dueño del repositorio
-            repoName: 'Drive',           // Nombre del repositorio
-            branch: 'main',              // Rama (branch)
-            filePath: '',
-            fileContent: '',
-            newFileName: '',             // Nuevo nombre de la imagen
-            commitMessage: '',
-            uploading: false,
-            success: false,
-            error: false,
-            errorMessage: '',            // Almacena el mensaje de error
-            showModal: false,            // Controla la visibilidad de la ventana flotante
+            <!-- Modal -->
+            <div class="modal" :class="{ 'show': showModal }">
+                <p>Ruta del archivo: <span x-text="filePath"></span></p>
+                <button @click="copyToClipboard">Copiar Ruta</button>
+                <button @click="showModal = false">Cerrar</button>
+            </div>
+        </div>
+    </section>
 
-            handleFile(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    // Previsualiza el nombre del archivo subido (temporal)
-                    this.filePath = `jobuco/upfromweb/${file.name}`;  // Por defecto, usa el nombre original del archivo
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        // Convertir el archivo a Base64
-                        this.fileContent = btoa(e.target.result);
-                    };
-                    reader.readAsBinaryString(file);
-                }
-            },
+    <script>
+        function uploadToGithub() {
+            return {
+                token: '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', // Reemplazar por tu token personal
+                repoOwner: 'Jordanbuco',
+                repoName: 'Drive',
+                branch: 'main',
+                filePath: '',
+                fileContent: '',
+                newFileName: '',
+                commitMessage: '',
+                uploading: false,
+                success: false,
+                error: false,
+                errorMessage: '',
+                showModal: false,
 
-            async uploadFile() {
-                // Si se ha ingresado un nuevo nombre, lo usamos
-                if (this.newFileName.trim() !== '') {
-                    // Asegúrate de que el nuevo nombre tiene una extensión válida
-                    if (!this.newFileName.includes('.')) {
-                        alert('Por favor, agrega una extensión al nuevo nombre del archivo (ej. .png, .jpg).');
+                handleFile(event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        this.filePath = `jobuco/upfromweb/${file.name}`;
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            this.fileContent = btoa(e.target.result);
+                        };
+                        reader.readAsBinaryString(file);
+                    }
+                },
+
+                async uploadFile() {
+                    if (this.newFileName.trim() !== '') {
+                        if (!this.newFileName.includes('.')) {
+                            alert('Agrega una extensión al nuevo nombre del archivo (ej. .png, .jpg).');
+                            return;
+                        }
+                        this.filePath = `jobuco/upfromweb/${this.newFileName}`;
+                    }
+
+                    if (!this.repoOwner || !this.repoName || !this.branch || !this.fileContent || !this.commitMessage) {
+                        alert('Por favor completa todos los campos.');
                         return;
                     }
-                    this.filePath = `jobuco/upfromweb/${this.newFileName}`;  // Usa el nuevo nombre
-                }
 
-                if (!this.repoOwner || !this.repoName || !this.branch || !this.fileContent || !this.commitMessage) {
-                    alert('Por favor completa todos los campos.');
-                    return;
-                }
+                    this.uploading = true;
+                    this.success = false;
+                    this.error = false;
+                    this.errorMessage = '';
 
-                this.uploading = true;
-                this.success = false;
-                this.error = false;
-                this.errorMessage = '';
+                    const url = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${this.filePath}`;
 
-                const url = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${this.filePath}`;
+                    try {
+                        const response = await fetch(url, {
+                            method: 'PUT',
+                            headers: {
+                                'Authorization': `token ${this.token}`,
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                message: this.commitMessage,
+                                content: this.fileContent,
+                                branch: this.branch,
+                            }),
+                        });
 
-                try {
-                    const response = await fetch(url, {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': `token ${this.token}`,
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            message: this.commitMessage,
-                            content: this.fileContent,
-                            branch: this.branch,
-                        }),
-                    });
+                        const result = await response.json();
+                        this.uploading = false;
 
-                    const result = await response.json();  // Captura la respuesta en JSON
-
-                    this.uploading = false;
-
-                    if (response.ok) {
-                        this.success = true;
-                        this.showModal = true;  // Muestra la ventana flotante
-                    } else {
+                        if (response.ok) {
+                            this.success = true;
+                            this.showModal = true;
+                        } else {
+                            this.error = true;
+                            this.errorMessage = result.message || 'Error desconocido';
+                        }
+                    } catch (err) {
+                        this.uploading = false;
                         this.error = true;
-                        this.errorMessage = result.message || 'Error desconocido';  // Muestra el mensaje de error
-                        console.error('Error al subir la imagen:', result.message);
+                        this.errorMessage = err.message;
                     }
-                } catch (err) {
-                    this.uploading = false;
-                    this.error = true;
-                    this.errorMessage = err.message;
-                    console.error('Error al realizar la solicitud:', err);
-                }
-            },
+                },
 
-            copyToClipboard() {
-                navigator.clipboard.writeText(this.filePath)
-                    .then(() => {
-                        alert('Ruta copiada al portapapeles!');
-                    })
-                    .catch(err => {
-                        alert('Error al copiar la ruta: ' + err);
-                    });
+                copyToClipboard() {
+                    navigator.clipboard.writeText(this.filePath)
+                        .then(() => {
+                            alert('Ruta copiada al portapapeles!');
+                        })
+                        .catch(err => {
+                            alert('Error al copiar la ruta: ' + err);
+                        });
+                }
             }
         }
-    }
-</script>
+    </script>
 
 </body>
+
 </html>
