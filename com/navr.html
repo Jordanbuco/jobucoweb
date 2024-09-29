@@ -48,18 +48,5 @@
         </div>
     </nav>
 
-    <!-- Incluye el script de carga de contenido dinámico -->
-    <script>
-        function loadContent(url) {
-            // Aquí podrías hacer una llamada AJAX o cargar contenido dinámicamente.
-            console.log("Cargando contenido de " + url);
-            // Ejemplo de uso de fetch para cargar el contenido dinámicamente
-            fetch(url)
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('main-content').innerHTML = html;
-                })
-                .catch(error => console.error('Error al cargar el contenido:', error));
-        }
-    </script>
+<script src="../scripts.js"></script>
 </body>

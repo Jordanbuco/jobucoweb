@@ -67,52 +67,7 @@
         </div>
     </section>
 
-    <script>
-        function fetchImagesFromGithub() {
-            return {
-                repoOwner: 'Jordanbuco',
-                repoName: 'Drive',
-                branch: 'main',
-                directoryPath: 'jobuco/upfromweb',
-                images: [],
-                loading: true,
-                error: false,
-                errorMessage: '',
-
-                async fetchImages() {
-                    const url = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${this.directoryPath}?ref=${this.branch}`;
-
-                    try {
-                        const response = await fetch(url, {
-                            method: 'GET',
-                            headers: {
-                                'Accept': 'application/vnd.github.v3+json',
-                            },
-                        });
-
-                        if (!response.ok) {
-                            throw new Error('No se pudieron obtener las imágenes');
-                        }
-
-                        const result = await response.json();
-
-                        // Filtrar solo archivos que sean imágenes (por extensión)
-                        this.images = result.filter(file => file.name.match(/\.(jpg|jpeg|png|gif)$/i));
-
-                        this.loading = false;
-                    } catch (err) {
-                        this.error = true;
-                        this.errorMessage = err.message;
-                        this.loading = false;
-                    }
-                },
-                
-                init() {
-                    this.fetchImages();
-                }
-            }
-        }
-    </script>
+    <script src="../scripts.js" ></script>
 
 </body>
 

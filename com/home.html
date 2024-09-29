@@ -1,5 +1,134 @@
-<!-- com/home.html -->
+<style>
+    /* Estilos generales de la página y el contenedor */
+    body {
+        background-color: #2B0F4D; /* Color púrpura oscuro */
+        color: #28FFBF; /* Verde claro */
+        font-family: 'Outfit', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .grid-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .grid-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .grid-item.large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .grid-item.wide {
+        grid-column: span 2;
+    }
+
+    .grid-item:hover {
+        transform: scale(1.05);
+    }
+
+    /* Estilo de la superposición (overlay) */
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(43, 15, 77, 0.8); /* Fondo semitransparente */
+        color: #28FFBF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 10px;
+    }
+
+    .grid-item:hover .overlay {
+        opacity: 1;
+    }
+
+    /* Estilos de las transiciones de Alpine.js */
+    .overlay p {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+</style>
+
 <section>
-    <h1>Welcome to Home</h1>
-    <p>This is the home page content.</p>
+    <div class="grid-container">
+        <!-- Cada elemento de la cuadrícula -->
+        <div class="grid-item large" x-data="{ open: false }" @click="open = !open">
+            <a href="https://example.com/link1">
+                <img src="./media/bgs/compress/1jo.jpg" alt="Image 1">
+                <div class="overlay">
+                    <p x-show="open" x-transition>This is Image 1</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="grid-item wide" x-data="{ open: false }" @click="open = !open">
+            <a href="https://example.com/link2">
+                <img src="./media/bgs/compress/2in.jpg" alt="Image 2">
+                <div class="overlay">
+                    <p x-show="open" x-transition>This is Image 2</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="grid-item" x-data="{ open: false }" @click="open = !open">
+            <a href="https://example.com/link3">
+                <img src="./media/bgs/compress/3st.jpg" alt="Image 3">
+                <div class="overlay">
+                    <p x-show="open" x-transition>This is Image 3</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="grid-item" x-data="{ open: false }" @click="open = !open">
+            <a href="https://example.com/link4">
+                <img src="./media/bgs/compress/4bl.jpg" alt="Image 4">
+                <div class="overlay">
+                    <p x-show="open" x-transition>This is Image 4</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="grid-item" x-data="{ open: false }" @click="open = !open">
+            <a href="https://example.com/link5">
+                <img src="./media/bgs/compress/5gr.jpg" alt="Image 5">
+                <div class="overlay">
+                    <p x-show="open" x-transition>This is Image 5</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="grid-item" x-data="{ open: false }" @click="open = !open">
+            <a href="https://example.com/link6">
+                <img src="./media/bgs/compress/6ma.jpg" alt="Image 6">
+                <div class="overlay">
+                    <p x-show="open" x-transition>This is Image 6</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Añade más imágenes si es necesario -->
+    </div>
 </section>
