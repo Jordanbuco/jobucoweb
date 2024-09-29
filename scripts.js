@@ -41,7 +41,7 @@ function loadContent(page) {
 
 // Al iniciar, cargar la página Home por defecto
 document.addEventListener('DOMContentLoaded', function () {
-    loadContent('com/home.html');
+    loadContent('com/tools.html');
 });
 
 // Función para mostrar/ocultar el cuadro de diálogo de ingreso y el overlay
@@ -235,6 +235,27 @@ function fetchImagesFromGithub() {
             }
         },
 
+        init() {
+            this.fetchImages();
+        }
+    }
+}
+
+// TOOLS
+function loadImages() {
+    return {
+        images: [],
+        loading: true,
+        async fetchImages() {
+            try {
+                const response = await fetch('./com/json/tools-images.json');
+                this.images = await response.json();
+            } catch (error) {
+                console.error('Error al cargar el JSON:', error);
+            } finally {
+                this.loading = false;
+            }
+        },
         init() {
             this.fetchImages();
         }

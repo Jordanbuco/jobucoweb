@@ -1,0 +1,85 @@
+<style>
+    /* Estilos específicos para la sección de imágenes */
+    .grid-container-tools {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .grid-item-tools {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    .grid-item-tools.large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .grid-item-tools.wide {
+        grid-column: span 2;
+    }
+
+
+    .grid-item-tools img {
+        width: 100%;
+        height: 150px;
+        /* Altura fija para mantener la forma rectangular */
+        object-fit: cover;
+        /* Asegura que la imagen cubra todo el espacio */
+    }
+
+    .grid-item-tools:hover {
+        transform: scale(1.05);
+    }
+
+    .overlay-tools {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .grid-item-tools:hover .overlay-tools {
+        opacity: 1;
+    }
+
+    /* Estilo para el mensaje de carga */
+    [x-show="loading"] {
+        font-size: 16px;
+        color: var(--whiskey);
+        text-align: center;
+    }
+</style>
+
+<section>
+    <div x-data="loadImages()" class="grid-container-tools">
+        <template x-for="image in images" :key="image.id">
+            <div :class="{
+                        'grid-item-tools': true,
+                        'large': image.large,
+                        'wide': image.wide
+                    }" x-data="{ open: false }" @click="open = !open">
+
+                <a :href="image.link">
+                    <img :src="image.src" :alt="image.alt">
+                    <div class="overlay-tools">
+                        <p x-show="open" x-transition x-text="image.text"></p>
+                    </div>
+                </a>
+            </div>
+        </template>
+
+        <div x-show="loading">Cargando imágenes...</div>
+    </div>
+</section>

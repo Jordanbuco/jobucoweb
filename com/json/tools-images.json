@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "src": "../media/images/tools/Front.png",
+        "alt": "Image 1",
+        "text": "This is Image 1",
+        "link": "https://example.com/link1",
+        "large": true,
+        "wide": false
+    },
+    {
+        "id": 2,
+        "src": "../media/images/tools/Back.png",
+        "alt": "Image 2",
+        "text": "This is Image 2",
+        "link": "https://example.com/link2",
+        "large": false,
+        "wide": true
+    },
+    {
+        "id": 3,
+        "src": "../media/images/tools/Figma.png",
+        "alt": "Image 3",
+        "text": "This is Image 3",
+        "link": "https://example.com/link3",
+        "large": false,
+        "wide": false
+    },
+    {
+        "id": 4,
+        "src": "../media/images/tools/ChatGPT.png",
+        "alt": "Image 4",
+        "text": "This is Image 4",
+        "link": "https://example.com/link4",
+        "large": false,
+        "wide": false
+    },
+    {
+        "id": 5,
+        "src": "../media/images/tools/UI.png",
+        "alt": "Image 5",
+        "text": "This is Image 5",
+        "link": "https://example.com/link5",
+        "large": false,
+        "wide": false
+    },
+    {
+        "id": 6,
+        "src": "../media/images/tools/UX.png",
+        "alt": "Image 6",
+        "text": "This is Image 6",
+        "link": "https://example.com/link6",
+        "large": false,
+        "wide": false
+    },
+    {
+        "id": 7,
+        "src": "../media/images/tools/Trello.png",
+        "alt": "Image 7",
+        "text": "This is Image 7",
+        "link": "https://example.com/link7",
+        "large": false,
+        "wide": false
+    },
+    {
+        "id": 8,
+        "src": "../media/images/tools/Arc.png",
+        "alt": "Image 8",
+        "text": "This is Image 8",
+        "link": "https://example.com/link8",
+        "large": false,
+        "wide": false
+    },
+    {
+        "id": 9,
+        "src": "../media/images/tools/codeapp.jpeg",
+        "alt": "Image 9",
+        "text": "This is Image 9",
+        "link": "https://example.com/link9",
+        "large": false,
+        "wide": false
+    },
+    {
+        "id": 10,
+        "src": "../media/images/tools/workingcopy.jpeg",
+        "alt": "Image 10",
+        "text": "This is Image 10",
+        "link": "https://example.com/link10",
+        "large": false,
+        "wide": false
+    },
+    {
+        "id": 11,
+        "src": "../media/images/tools/terminus.jpeg",
+        "alt": "Image 11",
+        "text": "This is Image 11",
+        "link": "https://example.com/link11",
+        "large": false,
+        "wide": false
+    },
+    {
+        "id": 12,
+        "src": "../media/images/tools/ashell.jpeg",
+        "alt": "Image 12",
+        "text": "This is Image 12",
+        "link": "https://example.com/link12",
+        "large": false,
+        "wide": false
+    }
+]
