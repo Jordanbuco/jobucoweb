@@ -1,0 +1,53 @@
+<section>
+    <div x-data="data()" x-init="loadArticles()" class="cards">
+        <!-- ******************** -->
+        <!-- ARTÍCULOS -->
+        <!-- ******************** -->
+        <template x-for="article in articles" :key="article.titulo">
+            <div class="article-card" @click="handleClick(article)">
+                <div class="image-container">
+                    <img class="article-image" :src="article.imagen1" alt="Imagen del artículo">
+                </div>
+
+                <div class="article-details">
+                    <div class="article-title">
+                        <h2 x-text="article.titulo"></h2>
+                    </div>
+                    <div class="article-subtitle">
+                        <p x-text="article.subtitulo"></p>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!--·‌********************·‌-->
+        <!--·‌SIDEBAR·‌-->
+        <!--·‌********************·‌-->
+        <div x-show="isOpen" class="sidebar">
+            <button class="close-button" @click="closeSidebar">
+                <!-- Botón de cerrar -->
+            </button>
+            <div x-show="selectedArticle" class="selected-article">
+                <div class="selected-details">
+                    <div class="selected-title">
+                        <h2 x-text="selectedArticle.titulo"></h2>
+                    </div>
+                    <p class="selected-subtitle" x-text="selectedArticle.subtitulo"></p>
+                    <p class="selected-body" x-text="selectedArticle.cuerpo1"></p>
+                    <p class="selected-body" x-text="selectedArticle.cuerpo2"></p>
+                    <p class="selected-body" x-text="selectedArticle.cuerpo3"></p>
+                    <p class="highlighted" x-text="selectedArticle.resaltado"></p>
+                    <h3 class="conclusion" x-text="selectedArticle.titulo_bajo"></h3>
+                </div>
+
+                <div class="selected-images">
+                    <img :src="selectedArticle.imagen1" class="article-image" alt="Imagen 1">
+                    <img :src="selectedArticle.imagen2" class="article-image" alt="Imagen 2">
+                </div>
+            </div>
+        </div>
+
+        <!-- OVERLAY -->
+        <div x-show="isOpen" class="overlay-blog" @click="closeSidebar()"></div>
+    </div>
+</section>
