@@ -41,7 +41,7 @@ function loadContent(page) {
 
 // Al iniciar, cargar la página Home por defecto
 document.addEventListener('DOMContentLoaded', function () {
-    loadContent('com/tools.html');
+    loadContent('com/home.html');
 });
 
 // Función para mostrar/ocultar el cuadro de diálogo de ingreso y el overlay
