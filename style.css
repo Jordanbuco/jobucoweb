@@ -1,3 +1,4 @@
+/* styles.css */
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 :root {
@@ -34,6 +35,7 @@ body {
     font-weight: 300;
     display: flex;
     flex-direction: row;
+    font-family: 'Outfit', sans-serif;
 }
 
 h1 {
@@ -324,7 +326,14 @@ section p {
     z-index: 1000;
 }
 
+
 /* Estilos para el menú desplegable */
+
+.icons {
+    display: flex;
+    text-align: center;
+}
+
 .dropdown {
     position: fixed;
     /* Fija el div en una posición específica en la ventana */
@@ -356,25 +365,80 @@ section p {
 
 .dropdown-content {
     display: none;
-    /* Oculta el contenido por defecto */
     position: absolute;
-    /* Posición absoluta respecto al botón */
     right: 0;
-    /* Alinea al lado derecho */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    /* Sombra para el menú */
     z-index: 1000;
-    /* Asegura que esté por encima de otros elementos */
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
-    /* Muestra el contenido al pasar el ratón sobre el botón */
 }
 
 .wsapp {
     width: 60px;
-    /* Ancho del enlace de WhatsApp */
     height: 40px;
-    /* Alto del enlace de WhatsApp */
+}
+
+.hover-text-icons-d {
+    display: none;
+    position: absolute;
+    right: 70px;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+
+    font-family: 'Outfit', sans-serif;
+}
+
+.dropdown:hover .hover-text-icons-d {
+    display: block;
+}
+
+/* Estilos para el menú desplegable DROPUP*/
+.dropup {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.dropupbtn {
+    background-image: url('media/icons/ayuda.svg');
+    /* Imagen del botón */
+    background-size: cover;
+    background-color: transparent;
+    width: 60px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropup-content {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.dropup:hover .dropup-content {
+    display: block;
+}
+
+.hover-text-icons {
+    display: none;
+    position: absolute;
+    right: 70px;
+    color: white;
+    padding:
+        5px;
+    border-radius:
+        5px;
+}
+
+.dropup:hover .hover-text-icons {
+    display: block;
 }

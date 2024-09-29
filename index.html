@@ -1,3 +1,5 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +23,9 @@
 
     <!-- Desplegable para WhatsApp Business -->
     <div class="dropdown">
-        <button class="dropbtn"></button>
+        <button class="dropbtn">
+                <div class="hover-text-icons-d">HÁBLAME</div>
+        </button>
         <div class="dropdown-content">
             <div class="icons">
                 <a href="https://wa.me/34624418183" target="_blank">
@@ -29,6 +33,7 @@
                     class="wsapp"
                     src="media/icons/wsapp.svg" alt="">
                 </a>
+                <div class="hover-text-icons-d">WHATSAPP</div>
             </div>
             <div class="icons">
                 <a href="mailto:jordan@jobuco.es" target="_blank">
@@ -36,9 +41,28 @@
                     class="wsapp"
                     src="media/icons/mail.svg" alt="">
                 </a>
+                <div class="hover-text-icons-d">MAILme</div>
             </div>
         </div>
     </div>
+    <!-- Desplegable para Ayudas y Donaciones -->
+    <div class="dropup">
+        <button class="dropupbtn">
+            <div class="hover-text-icons">AYUDAS</div>
+        </button>
+        <div class="dropup-content">
+            <div class="icons">
+                <a href="https://wa.me/34624418183" target="_blank">
+                    <img
+                    class="wsapp"
+                    src="media/icons/dona.svg" alt="">
+                </a>
+                <div class="hover-text-icons">DONACIONES</div>
+
+            </div>
+        </div>
+    </div>
+
 
     <!-- Overlay que cubre toda la pantalla -->
     <div class="overlay" id="overlay" onclick="togglePasswordDialog()" style="display:none;"></div>

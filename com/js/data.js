@@ -1,3 +1,5 @@
+// com/js/data.js
+
 async function fetchArticlesData() {
     const url = 'https://raw.githubusercontent.com/Jordanbuco/Data/refs/heads/main/miweb/blog/data.json'; // Tu enlace JSON
 
