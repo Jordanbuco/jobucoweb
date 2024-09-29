@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SLIDE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js y persist plugin -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <!-- Scripts personalizados -->
+    <script src="./data.js"></script>
+    <script src="./tailwindConfig.js"></script>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" />
+</head>
+
+<body class="bg-neutral-200 font-sans">
+    <div x-data="data()" class="mx-auto px-8 py-8 w-full max-w-6xl grid grid-cols-3 gap-5">
+        <!-- ******************** -->
+        <!-- VILLAGER CARDS -->
+        <!-- ******************** -->
+    </div>
+
+    <!-- SIDEBAR -->
+    <div x-data="{ isOpen: true }" x-show="isOpen"
+        class="fixed h-screen w-1/2 max-w-xs bg-neutral-100 top-0 right-0 z-30 p-16 flex flex-col items-start gap-10 shadow-2xl">
+        <button
+            class="font-regular text-neutral-800 flex gap-1 items-center py-1 px-2 rounded-full border border-transparent bg-neutral-200"
+            @click="isOpen = false">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5 3.5L3.5 12.5" stroke="#805120" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M12.5 3.5L3.5 3.5" stroke="#805120" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <div class="flex items-center gap-10">
+            <div class="w-50 h-50 bg-neutral-200 rounded-full overflow-hidden flex-shrink-0">
+                <img src="https://acnhapi.com/v1/images/villagers/1" class="w-full h-full object-cover" />
+            </div>
+            <div class="flex flex-col items-start gap-5">
+                <div class="text-5xl leading-none font-semibold rounded-full px-6 pb-2 pt-1"
+                    :style="{ 'background-color': '#1e1e1e', color: '#ffffff' }">
+                    <span>Cyrano</span>
+                </div>
+                <p class="font-semibold text-3xl text-neutral-800">"Saying goes here"</p>
+            </div>
+        </div>
+
+        <!-- PROPERTIES LIST -->
+        <div class="flex flex-col divide-y divide-solid divide-neutral-200 w-full text-neutral-800 border-y border-x">
+            <div>
+                <div class="p-4 flex gap-2">
+                    <span>Birthday:</span>
+                    <span class="font-semibold text-neutral-900">9/25</span>
+                </div>
+                <div class="p-4 flex gap-2">
+                    <span>Gender:</span>
+                    <span class="font-semibold text-neutral-900">Male</span>
+                </div>
+                <div class="p-4 flex gap-2">
+                    <span>Hobby:</span>
+                    <span class="font-semibold text-neutral-900">Jogging</span>
+                </div>
+                <div class="p-4 flex gap-2">
+                    <span>Personality:</span>
+                    <span class="font-semibold text-neutral-900">Jock</span>
+                </div>
+                <div class="p-4 flex gap-2">
+                    <span>Species:</span>
+                    <span class="font-semibold text-neutral-900">Bird</span>
+                </div>
+            </div>
+            <div class="absolute w-full flex align-center items-center -bottom-16 left-0 -z-10">
+                <span class="w-full text-center text-chonk font-semibold text-neutral-200 whitespace-nowrap">name-JPja</span>
+            </div>
+        </div>
+
+        <!-- OVERLAY -->
+        <div class="w-screen h-screen z-20 bg-neutral-900 opacity-75 fixed inset-0"></div>
+    </div>
+</body>
+
+</html>
